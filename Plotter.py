@@ -77,6 +77,15 @@ class Plotter:
                 p3.plot(vis, clear=True, pen=(0, 0, 255), fillLevel=0, brush=(0, 0, 255, 200))
                 p3.plot(local_vis, clear=False, pen=(0, 50, 100), fillLevel=0, brush=(0, 0, 255, 50))
                 logger.trace("~{} chunks with avg: {}".format(self.dimx[1], sum(chunk) / len(chunk)))
+                max = 0
+                for v in vis:
+                    if abs(v > max):
+                        max = v
+                mrange = float(p3.getAxis("left").range[1])
+                if max > mrange:
+                    p3.setRange(yRange=[0, (mrange + mrange/10)])
+                else:
+                    p3.setRange(yRange=[0, (mrange - mrange/12)])
                 prev_s1 = spectrum
                 prev_vis = local_vis
 

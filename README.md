@@ -1,5 +1,5 @@
 # VisualGold
-### Sound Visualizer
+### Simple Sound Visualizer (Oscilloscope and Spectrum Analyser)
 
 install all requirements with ```pip install -r requirements.txt```
 

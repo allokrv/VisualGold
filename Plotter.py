@@ -54,7 +54,11 @@ class Plotter:
             except Exception as err:
                 logger.warning("Failed to convert complex chunk, retrying..")
                 return
-            spectrum = np.fft.ifft2(chunk).astype(float)
+            try:
+                spectrum = np.fft.ifft2(chunk).astype(float)
+            except RuntimeWarning:
+                logger.warning("Complex chunk conversion failed, retrying..")
+                return
             spectrum = spectrum[:int(len(spectrum)/self.cut)]
             spectrum = [np.sum(x)/2 for x in spectrum]
 

@@ -8,6 +8,7 @@ import sys
 prgname = "VisualGold"
 vrs = "0.21"
 
+# arg parser
 apars = argparse.ArgumentParser(description="{} for Windows (Python3)".format(prgname))
 apars.add_argument('-V', '--version',
                    action='version', version="{0} {1}".format(prgname, vrs),
@@ -23,6 +24,7 @@ args = apars.parse_args()
 
 if __name__ == '__main__':
     logger.remove(0)
+    # still parsing args
     verbose = args.verbose
     if verbose:
         logger.debug("Verbose mode: on")
@@ -34,13 +36,10 @@ if __name__ == '__main__':
         logger.add(sys.stdout, level="INFO", enqueue=True)
     logger.info("Starting {}...".format(prgname))
 
+    # create necessary objects
     v = Visualizer.Visualizer()
     p = Plotter.Plotter(dimx=[0, v.chunksize])
-    """
-    if v.open_stream() != 0:
-        logger.critical("Stream couldn't be opened, exiting {}...".format(prgname))
-        exit(1) # CONTINUE HERE
-    """
-    p.start_thread(v)
+
+    p.start_thread(v)  # not a thread anymore but still starts program
     logger.info("Quitting Application...")
     exit(0)

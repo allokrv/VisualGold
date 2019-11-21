@@ -9,11 +9,6 @@ def print_available_devices():
     devices = sd.query_devices()
     for x in devices:
         logger.trace(x["name"])
-    """
-    for i in range(0, self.p.get_device_count()):
-        print("Name: {}".format(self.p.get_device_info_by_index(i)["name"]))
-        print("Index: {}".format(self.p.get_device_info_by_index(i)["index"]))
-    """
 
 
 class Visualizer:
@@ -22,6 +17,7 @@ class Visualizer:
     multi = 2
 
     def __init__(self):
+        """Get init values"""
         logger.debug("Initiating Visualizer")
         self.p = pyaudio.PyAudio()
         dev_info = self.p.get_device_info_by_index(0)
@@ -31,10 +27,11 @@ class Visualizer:
         self.deviceIndex = dev_info["index"]
         self.channels = 2
         print_available_devices()
-        # self.print_default_devices()
         self.defaultDevice = self.p.get_default_input_device_info()["index"]
         sd.default.device = self.defaultDevice
         sd.WasapiSettings(exclusive=True)
+
+        # Open WASAPI stream
         if self.open_stream() != 0:
             logger.critical("Couldn't open Stream! Quitting application..")
             exit(1)
@@ -48,8 +45,6 @@ class Visualizer:
         logger.trace("Default input: \n{}".format(dev_info))
 
     def get_chunk(self):
-        # self.chunk = self.stream.read(self.chunksize)
-        # logger.debug(self.chunk)
         self.chunk = self.stream.read(self.chunksize)
         return self.chunk
 
@@ -57,7 +52,7 @@ class Visualizer:
         logger.debug("Opening default output Stream")
 
         try:
-            """
+            """ mby viable for linux
             self.stream = self.p.open(rate=self.rate,
                                       channels=self.channels,
                                       format=self.format,

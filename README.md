@@ -1,5 +1,8 @@
 # VisualGold
-### Simple Sound Visualizer (Oscilloscope and Spectrum Analyser)
+### Simple Sound Visualizer
+#### Oscilloscope and Spectrum Analyser based on PyQtGraph
+it will listen to "stereomix" you can find that in the soundsettings > recording
+double click it and go to the listen tab, select your output device. then install the requirements:
 
 install all requirements with ```pip install -r requirements.txt```
 

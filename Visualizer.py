@@ -5,9 +5,10 @@ import numpy as np
 
 
 def print_available_devices():
+    logger.trace("_"*50 + "FOUND_DEVICES" + "_"*50)
     devices = sd.query_devices()
     for x in devices:
-        logger.trace(x)
+        logger.trace(x["name"])
     """
     for i in range(0, self.p.get_device_count()):
         print("Name: {}".format(self.p.get_device_info_by_index(i)["name"]))
@@ -30,7 +31,7 @@ class Visualizer:
         self.deviceIndex = dev_info["index"]
         self.channels = 2
         print_available_devices()
-        self.print_default_devices()
+        # self.print_default_devices()
         self.defaultDevice = self.p.get_default_input_device_info()["index"]
         sd.default.device = self.defaultDevice
         sd.WasapiSettings(exclusive=True)

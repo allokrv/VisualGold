@@ -4,3 +4,4 @@ sounddevice
 numpy
 loguru
 pyqtgraph
+pyqt5

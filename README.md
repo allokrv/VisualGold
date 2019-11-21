@@ -1,5 +1,6 @@
 # VisualGold
 ### Simple Sound Visualizer
+#### WORKS ONLY WITH Python3.6
 #### Oscilloscope and Spectrum Analyser based on PyQtGraph
 it will listen to "stereomix" you can find that in the soundsettings > recording
 double click it and go to the listen tab, select your output device. then install the requirements:

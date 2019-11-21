@@ -18,13 +18,13 @@ def print_available_devices():
 class Visualizer:
     chunk = np.empty(shape=(0, 0))
     stream = pyaudio.Stream
-    multi = 4
+    multi = 2
 
     def __init__(self):
         logger.debug("Initiating Visualizer")
         self.p = pyaudio.PyAudio()
         dev_info = self.p.get_device_info_by_index(0)
-        self.rate = 192000 #int(dev_info["defaultSampleRate"])
+        self.rate = int(dev_info["defaultSampleRate"])
         self.format = pyaudio.paInt16
         self.chunksize = int(1024 * self.multi)
         self.deviceIndex = dev_info["index"]

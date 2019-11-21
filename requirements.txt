@@ -1,0 +1,6 @@
+pipwin
+pyaudio
+sounddevice
+numpy
+loguru
+pyqtgraph

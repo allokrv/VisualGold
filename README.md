@@ -13,6 +13,8 @@ pip install pipwin
 pipwin install pyaudio
 ```
 
+now download and install PyQtGraph from http://www.pyqtgraph.org/
+
 everything else should work after starting main.py
 
 by clicking on the "A" next to the graphs you can auto-adjust the range that's displayed

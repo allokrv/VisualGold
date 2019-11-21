@@ -38,7 +38,7 @@ class Plotter:
         # set p1 & p2 limits
         p1.setRange(xRange=self.dimx, yRange=self.dimy)
         p1.disableAutoRange()
-        p3.setRange(xRange=[self.dimx[0], self.dimx[1]/self.vis_cut], yRange=[0, 0.06])
+        p3.setRange(xRange=[self.dimx[0], self.dimx[1]/self.vis_cut], yRange=[0, 0.01])
         p3.disableAutoRange()
         p2.setRange(xRange=[0, self.v.chunksize], yRange=[-0.5, 0.5])
         p2.disableAutoRange()
@@ -78,12 +78,12 @@ class Plotter:
                 p3.plot(local_vis, clear=False, pen=(0, 50, 100), fillLevel=0, brush=(0, 0, 255, 50))
                 logger.trace("~{} chunks with avg: {}".format(self.dimx[1], sum(chunk) / len(chunk)))
                 max = 0
-                for v in vis:
+                for v in local_vis:
                     if abs(v > max):
                         max = v
                 mrange = float(p3.getAxis("left").range[1])
                 if max > mrange:
-                    p3.setRange(yRange=[0, (mrange + mrange/10)])
+                    p3.setRange(yRange=[0, (mrange + mrange/11)])
                 else:
                     p3.setRange(yRange=[0, (mrange - mrange/12)])
                 prev_s1 = spectrum

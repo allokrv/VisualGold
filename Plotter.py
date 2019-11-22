@@ -8,7 +8,7 @@ import pyqtgraph as pg
 import numpy as np
 import time
 
-prev_s1 = prev_vis = np.array
+prev_vis = np.array
 
 
 class Plotter:
@@ -50,7 +50,7 @@ class Plotter:
 
         def update():
             # Main loop for pyqt
-            global prev_s1, prev_vis
+            global prev_vis
 
             # get chunk from Visualizer
             try:
@@ -103,12 +103,11 @@ class Plotter:
                 # keep range reasonable
                 mrange = float(p3.getAxis("left").range[1])
                 if max > mrange:
-                    p3.setRange(yRange=[0, (mrange + mrange/11)])
-                elif max / mrange < 0.6:
+                    p3.setRange(yRange=[0, (mrange + (max - mrange))])
+                elif max / mrange < 0.4:
                     p3.setRange(yRange=[0, (mrange - mrange/12)])
 
                 # save steps
-                prev_s1 = spectrum
                 prev_vis = local_vis
 
         # setup of pyqt-loop
@@ -117,8 +116,7 @@ class Plotter:
         timer.start(0)
 
         # preventing errors
-        global prev_s1, prev_vis
-        prev_s1 = np.zeros((self.dimx[1], ))
+        global prev_vis
         prev_vis = np.zeros((self.dimx[1], ))
         QtGui.QApplication.instance().exec_()
 

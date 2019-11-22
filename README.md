@@ -5,17 +5,21 @@
 it will listen to "stereomix" you can find that in the soundsettings > recording
 double click it and go to the listen tab, select your output device. then install the requirements:
 
-install all requirements with ```pip install -r requirements.txt```
+you'll need PyQtGraph if you didn't already download and install it from http://www.pyqtgraph.org/
 
-this will likely fail at pyaudio (if you are on windows) to fix that install and use pipwin
+after, install all requirements with ```pip install -r requirements.txt```
+
+if there are no errors you're good to go. otherwise:
+
+if it fails at pyaudio (likely, if you are on windows) it's an easy fix: install and use pipwin:
 ```
 pip install pipwin
 pipwin install pyaudio
 ```
 
-now download and install PyQtGraph from http://www.pyqtgraph.org/
+everything else should work OTB
 
-everything else should work after starting main.py
+start with: ```python main.py``` make sure you're running python3.6
 
 by clicking on the "A" next to the graphs you can auto-adjust the range that's displayed
 

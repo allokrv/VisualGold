@@ -37,3 +37,5 @@ optional arguments:
   -v, --verbose  Sets logger level to show debug info
   -x, --xtreme   Sets logger level to show even more debug
   ```
+  
+![Preview](https://i.imgur.com/pZsOvHy.png)

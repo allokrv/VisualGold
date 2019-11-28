@@ -2,7 +2,10 @@
 ### Simple Sound Visualizer
 #### WORKS ONLY WITH Python3.6
 #### Oscilloscope and Spectrum Analyser based on PyQtGraph
-it will listen to "stereomix" you can find that in the soundsettings > recording
+it will run on linux however: while testing on a VM running Ubuntu there was a huge delay
+
+(Windows:)
+it will listen to "stereomix" which you can find in the soundsettings > recording
 double click it and go to the listen tab, select your output device. then install the requirements:
 
 you'll need PyQtGraph if you didn't already download and install it from http://www.pyqtgraph.org/

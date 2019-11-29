@@ -32,7 +32,7 @@ ___
 ```
 usage: main.py [-h] [-V] [-v] [-x]
 
-VisualGold for Windows (Python3)
+VisualGold (Python3)
 
 optional arguments:
   -h, --help     show this help message and exit

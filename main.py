@@ -9,7 +9,7 @@ prgname = "VisualGold"
 vrs = "0.21"
 
 # arg parser
-apars = argparse.ArgumentParser(description="{} for Windows (Python3)".format(prgname))
+apars = argparse.ArgumentParser(description="{} (Python3)".format(prgname))
 apars.add_argument('-V', '--version',
                    action='version', version="{0} {1}".format(prgname, vrs),
                    help="Displays current version")

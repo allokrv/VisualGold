@@ -1,4 +1,4 @@
-# VisualGold [WIP]
+# VisualGold [~~WIP~~/Indefinitely Abandoned]
 ### Simple Sound Visualizer
 #### WORKS ONLY WITH Python3.6
 #### Oscilloscope and Spectrum Analyser based on PyQtGraph
